@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://openpolis.site/wp-content/uploads/2026/11/logo.png" alt="Openpolis Logo" width="160" />
+<img src="https://openpolis.site/wp-content/uploads/2026/11/logo.jpg" alt="Openpolis Logo" width="250" />
 
 # Openpolis
 
