@@ -1,0 +1,14 @@
+[package]
+name = "lux-core"
+description = "LUX: configuration, paths and the local control protocol shared by luxd and lux"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+toml.workspace = true
+tokio.workspace = true

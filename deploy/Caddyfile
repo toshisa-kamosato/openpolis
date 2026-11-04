@@ -1,0 +1,37 @@
+# openpolis — the only door of a node. DRAFT, NOT TESTED.
+# Certificates: Let's Encrypt, automatic. Member sub-domains get theirs on demand, but only after `luxd` says
+# the name is a member's (see /api/tls-ask): nobody can make the node ask for certificates for random names.
+{
+	email {$ACME_EMAIL}
+	on_demand_tls {
+		ask http://127.0.0.1:8080/api/tls-ask
+	}
+}
+
+# the platform: wallet, parliament, services, sign-up (and the Matrix well-known files)
+{$DOMAIN} {
+	reverse_proxy 127.0.0.1:8080
+}
+
+mail.{$DOMAIN} {
+	reverse_proxy 127.0.0.1:8081
+}
+
+chat.{$DOMAIN} {
+	reverse_proxy 127.0.0.1:8082
+}
+
+matrix.{$DOMAIN} {
+	reverse_proxy /_matrix/* 127.0.0.1:8008
+	reverse_proxy /_synapse/client/* 127.0.0.1:8008
+}
+
+# a member's sub-domain: the blog (a site of the WordPress Multisite), with shortcuts to mail and chat
+*.{$DOMAIN} {
+	tls {
+		on_demand
+	}
+	redir /mail* https://mail.{$DOMAIN} 302
+	redir /chat* https://chat.{$DOMAIN} 302
+	reverse_proxy 127.0.0.1:8083
+}

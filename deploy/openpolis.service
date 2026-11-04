@@ -1,0 +1,21 @@
+# systemd unit for luxd (install.sh copies it to /etc/systemd/system/openpolis.service). DRAFT, NOT TESTED.
+[Unit]
+Description=openpolis node (luxd)
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+User=openpolis
+Group=docker
+Environment=LUX_HOME=/var/lib/openpolis
+ExecStart=/usr/local/bin/luxd run --listen 127.0.0.1:8080 --trust-proxy --secure-cookies --provision compose
+Restart=on-failure
+RestartSec=5
+# luxd needs the docker socket to create the accounts: that is why it runs on the host as its own user,
+# and why this user is as powerful as root on this machine. Keep it for luxd alone.
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/openpolis
+
+[Install]
+WantedBy=multi-user.target

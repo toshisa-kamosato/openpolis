@@ -1,0 +1,43 @@
+[workspace]
+resolver = "2"
+members = ["crates/lux-core", "crates/lux-net", "crates/lux-economy", "crates/lux-node", "crates/luxd", "crates/lux"]
+# lux-net (libp2p) and lux (old CLI) are parked: ADR-0014/0016. They are built only on request.
+default-members = ["crates/lux-core", "crates/lux-economy", "crates/lux-node", "crates/luxd"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+license = "GPL-2.0-or-later"
+authors = ["LUX contributors"]
+
+[workspace.dependencies]
+anyhow = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "io-util", "sync", "time", "signal", "fs"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+clap = { version = "4", features = ["derive"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+futures = "0.3"
+libp2p = { version = "0.57", features = [
+    "tokio", "tcp", "quic", "noise", "yamux", "dns", "identify", "ping", "kad", "gossipsub",
+    "mdns", "macros", "relay", "dcutr", "autonat",
+] }
+lux-core = { path = "crates/lux-core" }
+lux-net = { path = "crates/lux-net" }
+lux-economy = { path = "crates/lux-economy" }
+lux-node = { path = "crates/lux-node" }
+
+[profile.release]
+lto = "thin"
+codegen-units = 4
+strip = true
+
+# Password hashing is deliberately slow: optimise it even in debug builds so tests stay fast.
+[profile.dev.package.argon2]
+opt-level = 3
+[profile.dev.package.blake2]
+opt-level = 3

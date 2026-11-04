@@ -1,0 +1,15 @@
+[package]
+name = "luxd"
+description = "openpolis node daemon"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+lux-core.workspace = true
+lux-node.workspace = true
+anyhow.workspace = true
+clap.workspace = true
+rpassword = "7"
+ureq = "2" # the dynamic DNS client and the public address lookup

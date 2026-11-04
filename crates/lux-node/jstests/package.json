@@ -1,0 +1,8 @@
+{
+  "name": "openpolis-wallet-tests",
+  "private": true,
+  "description": "Browser-side tests of the openpolis wallet. Run: npm install && npm test (needs a built luxd: cargo build -p luxd, or set LUXD_BIN)",
+  "scripts": { "test": "node --test wallet-core.test.js e2e.test.js ui.test.js ui-parliament.test.js ui-services.test.js" },
+  "devDependencies": { "fake-indexeddb": "^6.0.0", "jsdom": "^26.0.0" },
+  "license": "GPL-2.0-or-later"
+}

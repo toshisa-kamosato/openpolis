@@ -1,0 +1,20 @@
+[package]
+name = "lux-net"
+description = "LUX: peer-to-peer networking (libp2p): identity, discovery, gossip, relays and NAT traversal"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+lux-core.workspace = true
+anyhow.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+serde.workspace = true
+futures.workspace = true
+tracing.workspace = true
+libp2p.workspace = true
+
+[dev-dependencies]
+tracing-subscriber.workspace = true

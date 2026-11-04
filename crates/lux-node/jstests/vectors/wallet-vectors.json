@@ -1,0 +1,16 @@
+{
+  "entropy": "00112233445566778899aabbccddeeff",
+  "network_id": "0123456789abcdef0123456789abcdef",
+  "public_key": "71040ea9dec2e7149d013a1d682e4eb1a9141ed4cf244edb4d9afcb057097645",
+  "words_en": "abandon math mimic master filter design carbon crystal rookie group knife young",
+  "words_it": "abaco nessuno obbligo neofita fosso digerire buono cucire rogito inarcare mecenate zolla",
+  "registration": {
+    "username": "fulano",
+    "message": "register-key:v1:0123456789abcdef0123456789abcdef:fulano:71040ea9dec2e7149d013a1d682e4eb1a9141ed4cf244edb4d9afcb057097645",
+    "signature": "a375fd09d85176571ade60589e67b923b59373694c77be0e67eab92df761a418210c44b8caa450d692e855b38c7e8b69776c808ca1e2a557be8efaf74eac5409"
+  },
+  "pay": {
+    "payload": "{\"v\":1,\"net\":\"0123456789abcdef0123456789abcdef\",\"kind\":\"pay\",\"from\":\"fulano\",\"to\":\"mengano\",\"amount\":1250,\"nonce\":1,\"memo\":\"pane\",\"t\":1700000000}",
+    "signature": "430e9004eccb15bc6072b15f8da0a58e28879a8644b37c07f2d49a8ff6adfa092e163c25d61bf4abd43a0cce0a0f7045ef3b47c1b3209b030a0f21b71519c109"
+  }
+}
