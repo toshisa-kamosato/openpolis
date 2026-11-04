@@ -6,7 +6,7 @@
 
 **A human-centric, resilient, and distributed suite for governance and economic sovereignty.**
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: GPL v2](https://img.shields.io/badge/License-GPLv2-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
 [![Status: Concept/Development](https://img.shields.io/badge/Status-In_Development-orange.svg)](#)
 
 </div>
